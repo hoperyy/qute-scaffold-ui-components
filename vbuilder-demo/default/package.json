@@ -1,0 +1,18 @@
+{
+  "name": "@vdian/wdui-project",
+  "description": "demo 组件库",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "v run dev",
+    "lint": "v run lint -n",
+    "test": "v run test -n",
+    "build": "v run build -n",
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vdian/vbuilder-cli": "^3.7.24"
+  }
+}
