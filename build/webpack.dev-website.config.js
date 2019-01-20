@@ -5,11 +5,11 @@ const webpack = require('webpack')
 const WebpackOnBuildPlugin = require('on-build-webpack')
 const openBrowser = require('react-dev-utils/openBrowser')
 
-const srcDir = process.env.srcDir ? process.env.srcDir : path.join(__dirname, '../project-template');
+const srcDir = process.env.srcDir;
 
 module.exports = {
   entry: {
-    ['wdui-website/js/index']: path.resolve(path.resolve(srcDir, 'docs-template/website'), './index.js')
+    ['wdui-website/js/index']: path.resolve(path.resolve(srcDir, 'auto-completed-docs/website'), './index.js')
   },
   output: {
     path: path.resolve(path.resolve(__dirname), '../temp'),
@@ -75,13 +75,13 @@ module.exports = {
       }
     }),
     new HtmlwebpackPlugin({
-      template: path.resolve(srcDir, 'docs-template/website/index.html'),
+      template: path.resolve(srcDir, 'auto-completed-docs/website/index.html'),
       filename: 'index.html',
       chunks: ['wdui-website/js/index'],
       inject: 'body'
     }),
     new webpack.ProvidePlugin({
-      hljs: path.resolve(path.resolve(srcDir, 'docs-template/website'), './assets/js/highlight/highlight.pack.js')
+      hljs: path.resolve(path.resolve(srcDir, 'auto-completed-docs/website'), './assets/js/highlight/highlight.pack.js')
     }),
     new webpack.HotModuleReplacementPlugin(),
     new WebpackOnBuildPlugin(() => {

@@ -12,7 +12,7 @@ const path = require('path');
 const srcDir = process.env.srcDir ? process.env.srcDir : path.join(__dirname, '../project-template');
 const distDir = process.env.distDir ? process.env.distDir : path.join(__dirname, '../../../../../lib');
 
-const currentDir = path.join(srcDir, 'packages/common-template/assets/styles');
+const currentDir = path.join(srcDir, 'packages/auto-completed-common/assets/styles');
 
 gulp.task('compile', function() {
   return gulp.src(path.join(currentDir, 'theme-default/index.scss'))

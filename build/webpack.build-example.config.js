@@ -6,11 +6,11 @@ const px2rem = require('postcss-px2rem')
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 const CleanPlugin = require('clean-webpack-plugin')
 
-const srcDir = process.env.srcDir ? process.env.srcDir : path.join(__dirname, '../project-template');
-const distDir = process.env.distDir ? process.env.distDir : path.resolve(__dirname, '../lib');
+const srcDir = process.env.srcDir;
+const distDir = process.env.distDir;
 
 module.exports = {
-  entry: path.resolve(srcDir, 'example/src-template/index.js'),
+  entry: path.resolve(srcDir, 'example/example-page/index.js'),
   output: {
     path: path.resolve(distDir, 'example'),
     filename: 'demo.js'
@@ -66,7 +66,7 @@ module.exports = {
       }
     }),
     new HtmlwebpackPlugin({
-      template: path.resolve(srcDir, 'example/src-template/index.html'),
+      template: path.resolve(srcDir, 'example/example-page/index.html'),
       filename: '../demo.html',
       inject: 'body'
     }),

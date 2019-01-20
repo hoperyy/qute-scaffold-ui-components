@@ -5,7 +5,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import route from './router/index.js'
 import Index from './components/Index.vue'
-import '../../packages/common-template/assets/styles/theme-default/index.scss'
+import '../../auto-completed-common/assets/styles/theme-default/index.scss'
 
 import './index.scss'
 import './assets/reset.css'

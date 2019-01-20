@@ -9,8 +9,8 @@ const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin
 
 const fileNameTransfer = fileName => fileName.match(/[A-Z][a-z]*/g).map((e) => e.toLowerCase()).join('-')
 
-const srcDir = process.env.srcDir ? process.env.srcDir : path.join(__dirname, '../project-template');
-const distDir = process.env.distDir ? process.env.distDir : path.resolve(__dirname, '../lib');
+const srcDir = process.env.srcDir;
+const distDir = process.env.distDir;
 
 const generateEntrys = () => {
   const packagesPath = path.join(srcDir, 'packages/components')

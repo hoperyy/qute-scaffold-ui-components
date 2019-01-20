@@ -17,7 +17,7 @@
 		"test:watch": "karma start karma.conf.js",
 		"build": "(npm run build:umd) && (npm run build:style)",
 		"build:umd": "NODE_ENV=production webpack --config build/webpack.build.config.js",
-		"build:style": "gulp --gulpfile ./project-template/packages/common-template/assets/styles/gulpfile.js build",
+		"build:style": "gulp --gulpfile ./project-template/auto-completed-common/assets/styles/gulpfile.js build",
 		"build:example": "(npm run build:generate-example-and-doc) && (NODE_ENV=production webpack --config build/webpack.build-example.config.js --display-modules --sort-modules-by size)",
 		"dev:example": "(npm run build:generate-example-and-doc) && (webpack-dev-server --inline --config build/webpack.dev-example.config.js --host 0.0.0.0)",
 		"build:generate-example-and-doc": "node build/generate-example-and-doc.js",

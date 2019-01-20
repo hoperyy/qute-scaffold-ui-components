@@ -11,7 +11,7 @@ const fs = require('fs');
 const fse = require('fs-extra');
 const readdirSync = require('recursive-readdir-sync');
 
-const srcDir = process.env.srcDir ? process.env.srcDir : path.join(__dirname, '../project-template');
+const srcDir = process.env.srcDir;
 
 // package item should be a directory
 const globalComponentsDirPath = path.join(srcDir, 'packages');
@@ -52,7 +52,7 @@ class GenerateExample {
         this.exampleListDir = this.exampleDir; // path.join(this.exampleDir, 'example-list');
 
         this.exampleFiles = readdirSync(this.exampleListDir).filter((filepath) => {
-            if (filepath.indexOf('src-template') !== -1) {
+            if (filepath.indexOf('example-page') !== -1) {
                 return false;
             }
             if (/index\.js/.test(filepath)) {
@@ -76,7 +76,7 @@ class GenerateExample {
     }
 
     writeExamplePageIndexHtml() {
-        const targetHtml = path.join(this.exampleDir, 'src-template/index.html');
+        const targetHtml = path.join(this.exampleDir, 'example-page/index.html');
         let content = fs.readFileSync(targetHtml, 'utf8');
         
         let userConfig = {};
@@ -154,7 +154,7 @@ export default {
 
     // write example/route-config.js
     fullfillExamplePageRoute() {
-        const targetFile = path.join(srcDir, 'example/src-template/route-config.js');
+        const targetFile = path.join(srcDir, 'example/example-page/route-config.js');
 
         const imports = [];
         const routes = [];
@@ -206,7 +206,7 @@ export default {
 
     // write example/components/Index/Index.vue
     fulfillExamplePageIndexVue() {
-        const targetFile = path.join(srcDir, 'example/src-template/Index.vue');
+        const targetFile = path.join(srcDir, 'example/example-page/Index.vue');
 
         const fileNames = [];
         this.exampleFiles.forEach((filePath, index) => {
@@ -264,7 +264,7 @@ class GenerateWebsite {
     }
 
     writeComponentVueFile() {
-        const target = path.join(srcDir, 'docs-template/website/components/Components/Components.vue');
+        const target = path.join(srcDir, 'auto-completed-docs/website/components/Components/Components.vue');
 
         const importArr = [
             `import Rem from '../../../zh-cn/Rem.md'`,
@@ -378,7 +378,7 @@ export default {
 
     // for sidebar list
     writeSidebarComponentList() {
-        const target = path.join(srcDir, 'docs-template/website/components/Components/Components.js');
+        const target = path.join(srcDir, 'auto-completed-docs/website/components/Components/Components.js');
         const content = `
 export default [
 ${(globalComponentNames.map(componentName => '    \'' + componentName + '\'')).join(',    \n')}
@@ -395,7 +395,7 @@ class GenerateDocsDir {
     }
 
     ensureReadmes() {
-        const targetDir = path.join(srcDir, 'docs-template/zh-cn');
+        const targetDir = path.join(srcDir, 'auto-completed-docs/zh-cn');
 
         fse.ensureDirSync(targetDir);
 
@@ -448,7 +448,7 @@ class GenerateUiPackageInfo {
         const pkgFile = path.join(srcDir, 'package.json');
         const pkgObj = JSON.parse(fs.readFileSync(pkgFile, 'utf8'));
 
-        const target = path.join(srcDir, 'docs-template/website/ui-package-info.js');
+        const target = path.join(srcDir, 'auto-completed-docs/website/ui-package-info.js');
 
         const { name, description } = pkgObj;
 
