@@ -29,11 +29,6 @@
 		"deploy:gh-pages": "(npm run build:gh-pages) && (git checkout gh-pages) && (cp -r temp/* .) && (git add .) && (git commit -m '[chore] Auto-deploy update demopage' --no-verify ) && (git push)",
 		"clean": "rm -rf temp coverage"
 	},
-	"pre-commit": {
-		"run": [
-			"lint"
-		]
-	},
 	"author": "wdfe",
 	"license": "MIT",
 	"optionalDependencies": {
@@ -83,7 +78,6 @@
 		"phantomjs-prebuilt": "^2.1.14",
 		"postcss-loader": "^1.2.1",
 		"postcss-px2rem": "^0.3.0",
-		"pre-commit": "^1.2.2",
 		"raw-loader": "^0.5.1",
 		"react-dev-utils": "^5.0.1",
 		"recursive-readdir-sync": "^1.0.6",
@@ -102,5 +96,6 @@
 		"webpack": "^2.3.2",
 		"webpack-dev-server": "^2.2.0",
 		"webpack-stats-plugin": "^0.1.5"
-	}
+	},
+	"dependencies": {}
 }
