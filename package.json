@@ -1,15 +1,15 @@
 {
-	"name": "@vdian/wdui",
-	"version": "0.7.4",
+	"name": "qute-scaffold-ui-components",
+	"version": "1.0.0",
 	"description": "Mobile UI Components Library based on Vue 2.0",
 	"main": "lib/index.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/wdfe/wdui"
+		"url": "git+https://github.com/hoperyy/qute-scaffold-ui-components"
 	},
-	"homepage": "https://github.com/wdfe/wdui#readme",
+	"homepage": "https://github.com/hoperyy/qute-scaffold-ui-components#readme",
 	"bugs": {
-		"url": "https://github.com/wdfe/wdui/issues"
+		"url": "https://github.com/hoperyy/qute-scaffold-ui-components/issues"
 	},
 	"scripts": {
 		"update-demo": "node build/update-project-template.js",
@@ -19,7 +19,7 @@
 		"build:umd": "NODE_ENV=production webpack --config build/webpack.build.config.js",
 		"build:style": "gulp --gulpfile ./project-template/auto-completed-common/assets/styles/gulpfile.js build",
 		"build:example": "(npm run build:generate-example-and-doc) && (NODE_ENV=production webpack --config build/webpack.build-example.config.js --display-modules --sort-modules-by size)",
-		"dev:example": "(npm run build:generate-example-and-doc) && (webpack-dev-server --inline --config build/webpack.dev-example.config.js --host 0.0.0.0)",
+		"dev:example": "(npm run build:generate-example-and-doc) && (webpack-dev-server --inline --config build/webpack.dev-example.config.js --host 127.0.0.1)",
 		"build:generate-example-and-doc": "node build/generate-example-and-doc.js",
 		"build:website": "(npm run build:example) & (NODE_ENV=production webpack --config build/webpack.build-website.config.js --display-modules --sort-modules-by size)",
 		"dev:website": "(npm run dev:example) & (webpack-dev-server --inline --config build/webpack.dev-website.config.js --host 127.0.0.1)",
@@ -29,9 +29,9 @@
 		"deploy:gh-pages": "(npm run build:gh-pages) && (git checkout gh-pages) && (cp -r temp/* .) && (git add .) && (git commit -m '[chore] Auto-deploy update demopage' --no-verify ) && (git push)",
 		"clean": "rm -rf temp coverage"
 	},
-	"author": "wdfe",
+	"author": "https://github.com/hoperyy",
 	"license": "MIT",
-	"optionalDependencies": {
+	"dependencies": {
 		"autoprefixer": "^6.6.0",
 		"babel-core": "^6.21.0",
 		"babel-eslint": "^7.2.1",
@@ -96,6 +96,5 @@
 		"webpack": "^2.3.2",
 		"webpack-dev-server": "^2.2.0",
 		"webpack-stats-plugin": "^0.1.5"
-	},
-	"dependencies": {}
+	}
 }
